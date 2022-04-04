@@ -1,6 +1,6 @@
 import { Link } from "@remix-run/react";
-import styles from "~/styles/nav/index.css";
 import logo from "../../public/images/black.svg";
+
 export default function nav() {
   return (
     <>
