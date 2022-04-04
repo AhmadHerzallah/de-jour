@@ -1,31 +1,56 @@
-import {
-  Links,
-  LiveReload,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-} from "@remix-run/react";
+import { Outlet, LiveReload, Links, Meta } from "@remix-run/react";
+import Nav from "./components/nav";
+import styles from "~/styles/global.css";
 
-export const meta = () => ({
-  charset: "utf-8",
-  title: "New Remix App",
-  viewport: "width=device-width,initial-scale=1",
-});
+export const links = () => [
+  { rel: "stylesheet", href: styles },
+  { rel: "preconnect", href: "https://fonts.googleapis.com" },
+  { rel: "preconnect", href: "https://fonts.gstatic.com" },
+  {
+    rel: "stylesheet",
+    href: "https://fonts.googleapis.com/css2?family=Cairo&display=swap",
+  },
+];
+
+export const meta = () => {
+  return {
+    charset: "utf-8",
+    title: "De jour",
+    description: "will think of a description soon idk",
+    viewport: "width=device-width,initial-scale=1",
+  };
+};
 
 export default function App() {
   return (
+    <Document>
+      <Layout>
+        <Outlet />
+      </Layout>
+    </Document>
+  );
+}
+
+function Document({ children, title }) {
+  return (
     <html lang="en">
       <head>
-        <Meta />
         <Links />
+        <Meta />
       </head>
       <body>
-        <Outlet />
-        <ScrollRestoration />
-        <Scripts />
+        {children}
         <LiveReload />
       </body>
     </html>
+  );
+}
+
+function Layout({ children }) {
+  return (
+    <>
+      <Nav />
+      <div className="container">{children}</div>
+    </>
   );
 }
