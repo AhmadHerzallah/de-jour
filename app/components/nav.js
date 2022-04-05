@@ -16,7 +16,7 @@ export default function nav() {
             <Link to="#vision">Vision</Link>
           </li>
           <li>
-            <Link to="#du-houers">Du Jouers</Link>
+            <Link to="#du-jouers">Du Jouers</Link>
           </li>
           <li>
             <Link to="/login">Sign in</Link>
