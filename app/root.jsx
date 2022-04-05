@@ -1,4 +1,11 @@
-import { Outlet, LiveReload, Links, Meta } from "@remix-run/react";
+import {
+  Outlet,
+  LiveReload,
+  Links,
+  Meta,
+  useCatch,
+  Link,
+} from "@remix-run/react";
 import Nav from "./components/nav";
 import styles from "~/styles/global.css";
 
@@ -54,7 +61,36 @@ function Layout({ children }) {
   return (
     <>
       <Nav />
-      <div className="container">{children}</div>
+      <div className="container-lg">{children}</div>
     </>
+  );
+}
+
+export function CatchBoundary() {
+  const caught = useCatch();
+  return (
+    <html>
+      <head>
+        <title>Oops!</title>
+        <Meta />
+        <Links />
+      </head>
+      <body
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <h1>
+          {caught.status} {caught.statusText}
+        </h1>
+        <p>
+          Go Back -> <Link to="/">Home</Link>
+        </p>
+      </body>
+    </html>
   );
 }
