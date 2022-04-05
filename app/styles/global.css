@@ -33,3 +33,16 @@ body {
   width: 150px;
   height: 50px;
 }
+
+/* HOME */
+
+.home {
+  margin-top: 50px;
+}
+.highlight {
+  color: #b2765d;
+}
+
+.hero-ln2 {
+  margin-left: 40px;
+}
