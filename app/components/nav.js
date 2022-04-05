@@ -10,16 +10,16 @@ export default function nav() {
         </Link>
         <ul className="nav">
           <li>
-            <Link to="/">About us</Link>
+            <Link to="#about-us">About us</Link>
           </li>
           <li>
-            <Link to="/">Vision</Link>
+            <Link to="#vision">Vision</Link>
           </li>
           <li>
-            <Link to="/">Du Jouers</Link>
+            <Link to="#du-houers">Du Jouers</Link>
           </li>
           <li>
-            <Link to="/">Sign in</Link>
+            <Link to="/login">Sign in</Link>
           </li>
         </ul>
       </nav>
